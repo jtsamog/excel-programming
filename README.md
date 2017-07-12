@@ -57,4 +57,26 @@ End With
 
 .Range("I:I").Delete
 ```
+### Function
+- function return value
+- can be called with function name
+- can have parameters 
+```
+'#### Check if a value exist in a range, return rowIndex OR 0
+Function isValInRange(ByVal val As String, ByVal rng As Range) As Integer
+For Each Row In rng
+    If (Row.Cells(, 1) = val) Then
+        isValInRange = Row.Row
+        Exit Function
+    End If
+Next
+isValInRange = 0
+End Function
+```
+### Sub
+- Sub does not return value
+- need to call with: Call Sub name
+- can have parameters 
 
+## VBA Programming wisdom
+- Put your codes into the Module instead of Sheet. 
