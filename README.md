@@ -1,6 +1,8 @@
 # excel-programming
-excel vba programming cases
-No doubt Excel is popular. Many people are comfortable using it. So excel VBA programming skills benefits many.
+I can not believe myself coding on excel with VBA. But I have to say that excel programming is so beneficial because:
+- No doubt Excel is most popular application for storing data. But excel can not do complex data manipulation. VBA programming solves this shortage.  Therefore, tremendous needs exist for excel programming.
+- No need to install anything, all you need is excel. If we code with Python, we have to install Python first. If we use Jave, we have to install JDK first. 
+- 
 
 ## VBA basic syntax
 ### Print
