@@ -81,13 +81,12 @@ End Function
 - can have parameters 
 
 ### Soring
-- Worksheets(sheetName).Range("A1:D10").Sort key1:=.Range("B1:B10"), order1:=xlAscending, Header:=xlYes
-- Or
+- Up to 3 columns: Worksheets(sheetName).Range("A1:D10").Sort key1:=.Range("B1:B10"), order1:=xlAscending, Header:=xlYes
+- More than 3, consider followings:
 ```
 Dim wks As Worksheet
 Set wks = Worksheets("for Email")
 bottomMostRow = wks.Cells(wks.Rows.Count, "H").End(xlUp).Row
-'rightMostCol = Left(Replace(.Cells(1, 1).End(xlToRight).Address, "$", ""), 1)
 With wks.Sort
 With .SortFields
 .Add Key:=wks.Range("G1:G" & bottomMostRow), SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
@@ -102,7 +101,6 @@ End With
 .Orientation = xlTopToBottom
 '.SortMethod = xlPinYin
 .Apply
-
 End With
 ```
 
