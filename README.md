@@ -109,6 +109,9 @@ End With
 ### Conver string to formula
 - https://www.extendoffice.com/documents/excel/1683-excel-convert-text-string-to-formula.html
 
-
+### Set background color
+- [color index](http://dmcritchie.mvps.org/excel/colors.htm)
+- Worksheets.Range("Q3").Interior.ColorIndex = 6
+- Worksheets.Range("Q3").Interior.Color = RGB(255,255,0)
 ## VBA Programming wisdom
 - Put your codes into the Module instead of Sheet. 
