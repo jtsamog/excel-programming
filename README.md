@@ -80,5 +80,35 @@ End Function
 - need to call with: Call Sub name
 - can have parameters 
 
+### Soring
+- Worksheets(sheetName).Range("A1:D10").Sort key1:=.Range("B1:B10"), order1:=xlAscending, Header:=xlYes
+- Or
+```
+Dim wks As Worksheet
+Set wks = Worksheets("for Email")
+bottomMostRow = wks.Cells(wks.Rows.Count, "H").End(xlUp).Row
+'rightMostCol = Left(Replace(.Cells(1, 1).End(xlToRight).Address, "$", ""), 1)
+With wks.Sort
+With .SortFields
+.Add Key:=wks.Range("G1:G" & bottomMostRow), SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+.Add Key:=wks.Range("H1:H" & bottomMostRow), SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+.Add Key:=wks.Range("C1:C" & bottomMostRow), SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+.Add Key:=wks.Range("D1:D" & bottomMostRow), SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+.Add Key:=wks.Range("A1:A" & bottomMostRow), SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+End With
+.SetRange Range("A1:M" & bottomMostRow)
+.Header = xlYes
+.MatchCase = False
+.Orientation = xlTopToBottom
+'.SortMethod = xlPinYin
+.Apply
+
+End With
+```
+
+### Conver string to formula
+- https://www.extendoffice.com/documents/excel/1683-excel-convert-text-string-to-formula.html
+
+
 ## VBA Programming wisdom
 - Put your codes into the Module instead of Sheet. 
