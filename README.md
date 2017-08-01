@@ -113,3 +113,7 @@ End With
 - Worksheets.Range("Q3").Interior.Color = RGB(255,255,0)
 ## VBA Programming wisdom
 - Put your codes into the Module instead of Sheet. 
+## Excel Formula
+- Count weeks: =ROUNDUP((DATEDIF(date1,date2,"d")/7),0)
+- First Monday after a date: =date+(7-WEEKDAY(date,2)+1)
+- IF Monday, set the current value, ELSE, next Monday: =IF(WEEKDAY(date)=2,date,date+(7-WEEKDAY(date,2)+1))
