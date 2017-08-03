@@ -117,3 +117,10 @@ End With
 - Count weeks: =ROUNDUP((DATEDIF(date1,date2,"d")/7),0)
 - First Monday after a date: =date+(7-WEEKDAY(date,2)+1)
 - IF Monday, set the current value, ELSE, next Monday: =IF(WEEKDAY(date)=2,date,date+(7-WEEKDAY(date,2)+1))
+
+## Create a custom function
+ - create the functin in the Module
+ - Apply it with =function  same as using default functions
+ - can save as Add-ons (xlam file) for later use
+ - https://support.office.com/en-us/article/Create-Custom-Functions-in-Excel-2007-2f06c10b-3622-40d6-a1b2-b6748ae8231f
+ 
