@@ -11,3 +11,6 @@ ElseIf (credit = 3) Then
     sumIfAmount = 400
 End If
 ```
+
+### What NOT Works
+1. GoTo statement in IF ELSE not work.
