@@ -4,17 +4,17 @@
  - ALT+F11
  - CTRL+G and input following code into **Immediate**: ActiveDocument.Range.ListFormat.ConvertNumbersToText
  - ENTER
-2. Convert table into text:
+2. [Convert table into text](https://www.extendoffice.com/documents/word/994-word-convert-multiple-tables-to-text.html):
  - ALT+F11
  - Click **Module** on the Insert tab, copy and paste the following VBA code into the Module window;
  - Click **Run** button to apply the VBA
  ```VBA
-Sub TablesToText()
- Dim tbl As Table
- For Each tbl In ActiveDocument.Tables
-  tbl.ConvertToText 
-  Separator:=wdSeparateByTabs
- Next tbl
-Set tbl = Nothing
-End Sub
+ Sub TablesToText()
+  Dim tbl As Table
+  For Each tbl In ActiveDocument.Tables
+   tbl.ConvertToText 
+   Separator:=wdSeparateByTabs
+  Next tbl
+  Set tbl = Nothing
+ End Sub
  ```
