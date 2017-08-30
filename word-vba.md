@@ -9,12 +9,13 @@
  - Click **Module** on the Insert tab, copy and paste the following VBA code into the Module window;
  - Click **Run** button to apply the VBA
  ```VBA
- Sub TablesToText()
-  Dim tbl As Table
-  For Each tbl In ActiveDocument.Tables
-   tbl.ConvertToText 
-   Separator:=wdSeparateByTabs
-  Next tbl
-  Set tbl = Nothing
- End Sub
+'*** Convert table into text *************
+Sub TablesToText()
+    Dim tbl As Table
+    For Each tbl In ActiveDocument.Tables
+        tbl.ConvertToText wdSeparateByTabs, True
+        'Separator = wdSeparateByTabs
+    Next tbl
+    Set tbl = Nothing
+End Sub
  ```
