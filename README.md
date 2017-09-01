@@ -123,4 +123,44 @@ End With
  - Apply it with =function  same as using default functions
  - can save as Add-ons (xlam file) for later use
  - https://support.office.com/en-us/article/Create-Custom-Functions-in-Excel-2007-2f06c10b-3622-40d6-a1b2-b6748ae8231f
- 
+## Check duplication
+* Highlight row(s) of duplicates
+* Create Duplicate tab with nothing automatically going to it
+* Evaluate columns: SATURN_SPRIDEN_SPRIDEN_ID [A], SSBSECT_CRN[F], SFRSTCR_GRDE_CODE[I]
+```
+With Worksheets("Self-paced")
+
+'Declaring the lastRow variable as Long to store the last row value in the Column L
+Dim lastRow As Long
+'matchFoundIndex is to store the match index values of the given value
+Dim matchFoundIndex As Long
+'rowid is to loop through all the records in the column 1 using For loop
+Dim rowid As Long
+'Finding the last row in the Column 1
+lastRow = .Cells(.Rows.Count, "L").End(xlUp).Row
+' Convert Range to Array() in order to use Match function
+Dim arrStrList2() As String
+Dim str As String
+Dim rng33 As Range
+i = 0
+ReDim arrStrList2(lastRow - 1)
+Set rng33 = .Range("A1:P" & lastRow)
+For Each Row In rng33.Rows
+'MsgBox (Row.Cells(, 1) & Row.Cells(, 2))
+arrStrList2(i) = Row.Cells(, 1) & Row.Cells(, 6) & Row.Cells(, 9)
+i = i + 1
+Next
+
+For rowid = 1 To lastRow
+    'getting match index number for the value of the cells = [A,F,I] === [1,6,9]
+    str = .Cells(rowid, 1) & .Cells(rowid, 6) & .Cells(rowid, 9)
+    matchFoundIndex = WorksheetFunction.Match(str, arrStrList2, 0)
+    If rowid <> matchFoundIndex Then
+        'Highlight the row in RED color
+        .Range("A" & rowid & ":P" & rowid).Interior.ColorIndex = 3 ' RED Color
+    End If
+
+Next
+
+End With
+```
